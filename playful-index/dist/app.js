@@ -12,7 +12,7 @@ function resourceCard(resource) {
     <p class="resource-meta">${escapeHTML(resource.type)}${resource.creator ? ` / ${escapeHTML(resource.creator)}` : ''}</p>
     <h3><a href="${safeURL(resource.url)}" target="_blank" rel="noopener noreferrer"><span>${escapeHTML(resource.name)}</span><span class="external-arrow" aria-hidden="true">↗</span><span class="sr-only"> (opens in a new tab)</span></a></h3>
     <p class="description">${escapeHTML(resource.description)}</p>
-    ${resource.relevance ? `<details class="research-note"><summary>Research note</summary><p>${escapeHTML(resource.relevance)}</p></details>` : ''}
+    ${resource.relevance || resource.researchLink ? `<details class="research-note"><summary>Research note</summary><p>${resource.researchLink ? `<a href="${safeURL(resource.researchLink)}" target="_blank" rel="noopener noreferrer">${escapeHTML(resource.researchLink)}<span class="sr-only"> (opens in a new tab)</span></a>` : escapeHTML(resource.relevance)}</p></details>` : ''}
     ${resource.note ? `<p class="access-note">${escapeHTML(resource.note)}</p>` : ''}
     </div>
     ${resource.preview ? `<figure class="resource-preview${resource.previewFit === 'contain' ? ' preview-contain' : ''}"><img src="${escapeHTML(resource.preview)}" alt="${escapeHTML(resource.previewAlt || `Preview of ${resource.name}`)}" loading="lazy" decoding="async" width="240" height="160"></figure>` : ''}
@@ -115,3 +115,36 @@ async function init() {
   }
 }
 init();
+
+// A progressive enhancement: touch and keyboard users keep their native input.
+function initPointer() {
+  const finePointer = window.matchMedia('(hover: hover) and (pointer: fine)');
+  const dot = document.createElement('div');
+  dot.className = 'pointer-dot';
+  dot.setAttribute('aria-hidden', 'true');
+  document.body.append(dot);
+  let visible = false;
+  let clickAnimation;
+  const hide = () => { visible = false; document.documentElement.classList.remove('custom-pointer'); };
+  document.addEventListener('pointermove', event => {
+    if (!finePointer.matches || event.pointerType === 'touch') { hide(); return; }
+    dot.style.left = `${event.clientX}px`;
+    dot.style.top = `${event.clientY}px`;
+    dot.classList.toggle('is-interactive', Boolean(event.target.closest('a, button:not(:disabled), summary')));
+    if (!visible) { visible = true; document.documentElement.classList.add('custom-pointer'); }
+  }, {passive: true});
+  document.addEventListener('pointerdown', event => {
+    if (!visible || reducedMotion.matches || !event.target.closest('a, button:not(:disabled), summary')) return;
+    clickAnimation?.cancel();
+    clickAnimation = dot.animate([
+      {scale: '1', boxShadow: '0 0 0 0 rgba(255,224,100,.45)'},
+      {scale: '.85', offset: .2, boxShadow: '0 0 12px 5px rgba(255,224,100,.3)'},
+      {scale: '1', boxShadow: '0 0 22px 20px rgba(255,224,100,0)'}
+    ], {duration: 650, easing: 'ease-out'});
+  }, {passive: true});
+  document.documentElement.addEventListener('pointerleave', hide);
+  document.addEventListener('keydown', event => { if (event.key === 'Tab') hide(); });
+  window.addEventListener('blur', hide);
+  finePointer.addEventListener('change', hide);
+}
+initPointer();

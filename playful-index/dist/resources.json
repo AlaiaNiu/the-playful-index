@@ -25,7 +25,7 @@
   "resources": [
     {
       "id": "playful-ui",
-      "category": "origins",
+      "category": "perspectives",
       "name": "Playful UI Runs the World",
       "type": "Article",
       "creator": "Liudmyla Shevchenko / Muzli",
@@ -59,7 +59,7 @@
       "creator": "Web Design Museum",
       "url": "https://www.webdesignmuseum.org/software/futuresplash-animator-in-1996",
       "description": "An archive of the vector animation tool that became Macromedia Flash.",
-      "relevance": "A historical reference for movement and animation on the early web.",
+      "relevance": "Web Design museum - information about early web and development",
       "preview": "assets/previews/futuresplash.jpg",
       "previewSource": "https://www.webdesignmuseum.org/uploaded/old-software/macromedia-flash/futuresplash-animator-1-0-01.png",
       "previewKind": "Website screenshot",
@@ -78,20 +78,6 @@
       "previewSource": "https://dribbble.com/tags/playful-ui",
       "previewKind": "Website screenshot",
       "previewAlt": "Website screenshot — Playful UI on Dribbble"
-    },
-    {
-      "id": "duten",
-      "category": "interfaces",
-      "name": "Duten",
-      "type": "Brand website",
-      "creator": "Duten",
-      "url": "https://www.duten.com/en/",
-      "description": "A product-led brand website presenting washroom fittings, material finishes, and design projects.",
-      "relevance": "Observe how product presentation and motion help communicate a material-focused brand.",
-      "preview": "assets/previews/duten.jpg",
-      "previewSource": "https://www.duten.com/wp-content/uploads/2025/09/R311-FondBlanc1-Inox.jpg",
-      "previewKind": "Official preview image",
-      "previewAlt": "Official preview image — Duten"
     },
     {
       "id": "awwwards-playful",
@@ -122,6 +108,32 @@
       "previewAlt": "Website screenshot — Codrops Creative Hub"
     },
     {
+      "id": "seesaw",
+      "category": "interfaces",
+      "name": "Seesaw",
+      "type": "Inspiration collection",
+      "url": "https://www.seesaw.website/",
+      "description": "A curated gallery of web design inspiration across brands, portfolios, and digital products.",
+      "relevance": "Fun, quirky, and unexpected websites where you can see lots of interactive and experimental designs～",
+      "preview": "assets/previews/seesaw.jpg",
+      "previewSource": "https://www.seesaw.website/",
+      "previewKind": "Website screenshot",
+      "previewAlt": "Website screenshot — Seesaw"
+    },
+    {
+      "id": "hoverstat",
+      "category": "interfaces",
+      "name": "Hoverstat.es",
+      "type": "Inspiration collection",
+      "url": "https://www.hoverstat.es/",
+      "description": "An archive of alternative web design, with short observations on distinctive interactions and layouts.",
+      "relevance": "Established in 2012, this collection has been handpicked by two curators and features websites with unconventional layouts, fun animations, and creative coding.",
+      "preview": "assets/previews/hoverstat.jpg",
+      "previewSource": "https://www.hoverstat.es/",
+      "previewKind": "Website screenshot",
+      "previewAlt": "Website screenshot — Hoverstat.es"
+    },
+    {
       "id": "wodniack",
       "category": "playground",
       "name": "Antoine Wodniack",
@@ -129,7 +141,7 @@
       "creator": "Antoine Wodniack",
       "url": "https://wodniack.dev/",
       "description": "A creative developer’s website exploring animation and interactive web experiences.",
-      "relevance": "Look at how navigation and feedback express the practice of creative coding.",
+      "relevance": "Antoine Wodniack is a France-based creative developer and freelancer who specializes in animation and interactive design, often collaborating with agencies and designers. He co-founded Waaark and incredibles.dev, has worked on over 140 projects, and has won 16 Awwwards Site of the Day awards.",
       "preview": "assets/previews/wodniack.png",
       "previewSource": "https://wodniack.dev/images/aw-creative-developer.png",
       "previewKind": "Official preview image",
@@ -143,11 +155,11 @@
       "creator": "Victor Costa",
       "url": "https://sleep-well-creatives.com/",
       "description": "A personal design experiment connecting sleep, creativity, and interactive storytelling.",
-      "relevance": "Study the storytelling and interaction design; the project describes itself as a creative research experiment.",
       "preview": "assets/previews/sleep-well.png",
       "previewSource": "https://cdn.prod.website-files.com/68fcf9490b2a28caaa0e59bc/690e7cacbe09fa446aa96850_cover.png",
       "previewKind": "Official preview image",
-      "previewAlt": "Official preview image — Sleep Well Creatives"
+      "previewAlt": "Official preview image — Sleep Well Creatives",
+      "researchLink": "https://victor.work/"
     },
     {
       "id": "nomadic-tribe",
@@ -157,11 +169,11 @@
       "creator": "makemepulse / 2019",
       "url": "https://2019.makemepulse.com",
       "description": "An illustrated interactive world made for exploration.",
-      "relevance": "A reference for experiences where discovering the environment is central to the work.",
       "preview": "assets/previews/nomadic-tribe.jpg",
       "previewSource": "https://2019.makemepulse.com",
       "previewKind": "Website screenshot",
-      "previewAlt": "Website screenshot — Nomadic Tribe"
+      "previewAlt": "Website screenshot — Nomadic Tribe",
+      "researchLink": "https://www.makemepulse.com/"
     },
     {
       "id": "library-reading",

@@ -11,10 +11,6 @@
 /* A selected color field turns over to reveal its resource side. */
 .stage{perspective:1500px}
 .tile,.resource-panel{backface-visibility:hidden;-webkit-backface-visibility:hidden;transform-origin:center center}
-@media(hover:hover) and (pointer:fine){
-  html,body,button,a,summary,.resource-scroll{cursor:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 16 16'%3E%3Ccircle cx='8' cy='8' r='4' fill='%233a2927' stroke='%23fcf6e9' stroke-width='1.5'/%3E%3C/svg%3E") 8 8,auto}
-  button:disabled{cursor:wait}
-}
 
 /* Small source previews sit beside the resource copy. */
 .resource-card{display:grid;grid-template-columns:minmax(0,1fr) 138px;gap:20px;align-items:start}
@@ -29,3 +25,26 @@
 @media(max-width:360px){.resource-card{grid-template-columns:minmax(0,1fr) 80px;gap:12px}.resource-card h3{font-size:23px}}
 @media(prefers-reduced-motion:reduce){.resource-card:hover .resource-preview img{transform:none}}
 .preview-contain img{object-fit:contain;padding:5px}
+
+/* Quiet editorial details give each field a clear entry point. */
+.tile{border:1px solid #3a292712;transition:filter .2s,box-shadow .25s}
+.tile-top{align-items:center;padding-bottom:15px;border-bottom:1px solid currentColor}
+.tile-count{font-size:10px;letter-spacing:.02em}
+.tile-title{max-width:85%;text-wrap:balance}
+.tile-enter{width:42px;height:42px;display:grid;place-items:center;border:1px solid currentColor;border-radius:50%;font-size:23px;line-height:1}
+.tile:hover,.tile:focus-visible{box-shadow:inset 0 0 0 1px #3a292720}
+.tile:hover .tile-enter,.tile:focus-visible .tile-enter{transform:rotate(45deg);background:#fff3}
+.research-note a{overflow-wrap:anywhere}
+.pointer-dot{display:none;position:fixed;left:0;top:0;width:14px;height:14px;border-radius:50%;background:transparent;pointer-events:none;z-index:1000;transform:translate(-50%,-50%)}
+@media(hover:hover) and (pointer:fine){
+  html,body,button,a,summary,.resource-scroll{cursor:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24'%3E%3Ccircle cx='12' cy='12' r='7' fill='%233a2927' stroke='%23fcf6e9'/%3E%3C/svg%3E") 12 12,auto}
+  .custom-pointer,.custom-pointer *{cursor:none!important}
+  .custom-pointer .pointer-dot{display:block}
+  .pointer-dot::before{content:'';position:absolute;inset:0;border-radius:50%;background:var(--ink);border:1px solid var(--paper);transition:background-color .45s,border-color .45s,transform .5s cubic-bezier(.2,.75,.2,1),box-shadow .5s}
+  .pointer-dot::after{content:'';position:absolute;inset:-17px;border-radius:50%;background:radial-gradient(circle,#fff7bdcc 0%,#ffdf66aa 24%,#ffd84b55 48%,#ffdf6600 72%);opacity:0;scale:.35;filter:blur(3px);transition:opacity .55s,scale .65s cubic-bezier(.2,.75,.2,1);animation:pointer-glow 2.4s ease-in-out infinite}
+  .pointer-dot.is-interactive::before{background-color:#ffe789;border-color:#fff8c5;transform:scale(1.25);box-shadow:0 0 10px #ffe47699}
+  .pointer-dot.is-interactive::after{opacity:1;scale:1}
+}
+@keyframes pointer-glow{0%,100%{transform:scale(.9);filter:blur(3px)}50%{transform:scale(1.15);filter:blur(5px)}}
+@media(max-width:700px){.tile-top{padding-bottom:10px}.tile-title{max-width:100%}.tile-enter{width:30px;height:30px;font-size:20px}.tile-count{font-size:9px}}
+@media(max-height:520px){.tile-top{padding-bottom:6px}.tile-enter{width:28px;height:28px;font-size:19px}}
