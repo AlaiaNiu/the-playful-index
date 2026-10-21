@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#fcf6e9">
+  <meta name="description" content="The Playful Index: a curated research directory about playfulness in digital interfaces.">
+  <title>The Playful Index</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#playground">Skip to the four sections</a>
+  <header class="site-header">
+    <div><button type="button" class="wordmark" id="home-button" aria-label="The Playful Index, return to overview">The Playful Index</button><p>Playfulness in Digital Interfaces</p></div>
+    <span class="header-note">A curated research directory</span>
+  </header>
+  <main id="playground" tabindex="-1">
+    <h1 class="sr-only">The Playful Index research collection</h1>
+    <div class="stage" id="stage">
+      <div class="overview" id="overview" role="group" aria-label="Four research sections">
+        <button class="tile" data-category="origins" type="button" aria-expanded="false" aria-controls="resource-panel" disabled><span class="tile-top"><span>01</span><span class="tile-count">4 links</span></span><span class="tile-title">Evolution of Moving</span><span class="tile-enter" aria-hidden="true">↗</span></button>
+        <button class="tile" data-category="interfaces" type="button" aria-expanded="false" aria-controls="resource-panel" disabled><span class="tile-top"><span>02</span><span class="tile-count">3 links</span></span><span class="tile-title">Playful Interfaces</span><span class="tile-enter" aria-hidden="true">↗</span></button>
+        <button class="tile" data-category="playground" type="button" aria-expanded="false" aria-controls="resource-panel" disabled><span class="tile-top"><span>03</span><span class="tile-count">3 links</span></span><span class="tile-title">Experimental Playground</span><span class="tile-enter" aria-hidden="true">↗</span></button>
+        <button class="tile" data-category="perspectives" type="button" aria-expanded="false" aria-controls="resource-panel" disabled><span class="tile-top"><span>04</span><span class="tile-count">2 links</span></span><span class="tile-title">Perspective and Debates</span><span class="tile-enter" aria-hidden="true">↗</span></button>
+      </div>
+      <section class="resource-panel" id="resource-panel" aria-labelledby="panel-title" hidden inert>
+        <div class="panel-heading"><div class="panel-breadcrumb"><button type="button" id="back-button">← Back to index</button><span id="panel-number"></span></div><div class="panel-title-row"><h2 id="panel-title" tabindex="-1"></h2><p id="panel-count"></p></div></div>
+        <div class="resource-scroll" id="resource-scroll" tabindex="0" role="region" aria-label="Scrollable research resources"><div class="resource-grid" id="resource-grid"></div></div>
+      </section>
+    </div>
+    <p class="sr-only" id="announcement" role="status" aria-live="polite">Loading the collection…</p>
+    <noscript><p>Read the complete collection in <a href="resources.json">resources.json</a>.</p></noscript>
+  </main>
+  <footer><span>Linzhuo Niu</span><span id="collection-meta">12 links / 4 sections</span></footer>
+</body>
+</html>

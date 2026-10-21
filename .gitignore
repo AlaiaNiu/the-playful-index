@@ -1,0 +1,40 @@
+# OS and editor files
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# Dependencies, caches, logs, and local tooling
+node_modules/
+.cache/
+.parcel-cache/
+.vite/
+coverage/
+*.log
+*.pid
+*.tmp
+*.bak
+.openai/
+
+# Secrets and local credentials
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+*.p12
+*.pfx
+.npmrc
+.netrc
+credentials.json
+service-account*.json
+
+# Unrelated presentation and development-only captures
+/Playfulness_3-minute_script.md
+/playful-index/preview-*.jpg
+/playful-index/ARTWORK.md
+
+# Unused artwork from an earlier design; resource preview assets remain tracked
+/playful-index/dist/assets/library-hero.png
